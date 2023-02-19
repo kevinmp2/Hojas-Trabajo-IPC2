@@ -62,11 +62,29 @@ class lista_circular:
                 actual.siguiente = self.primero.siguiente
                 self.primero = self.primero.siguiente
 
+    def modificar(self, paciente, fecha_cita, hora_cita, nuevo_tratamiento):
+        actual = self.primero
+        no_encontrado = False
+
+        while actual and (actual.receta.paciente != paciente or actual.receta.fecha_cita != fecha_cita or actual.receta.hora_cita != hora_cita):
+            actual = actual.siguiente
+
+            if actual == self.primero:
+                no_encontrado = True
+                break
+
+        if not no_encontrado:
+            actual.receta.tratamiento = nuevo_tratamiento
+
+
+
+
+
 
 #Creacion de objetos Receta
 r1 = Receta('Gerson Lopez', '03/10/1990', 'Melvin Ortiz', 20156, '17/01/2023', '11:30', 'Medicina', '2 pildoras de acetaminofen cada 6 horas')
 r2 = Receta('Karen Gómez', '08-05-2000', 'Jorge Merida', 8567, '31-01-20233', '09:00', 'Medicina interna', 'Tylenol de 20 ml cada 4 horas')
-r3 = Receta('Luis García', '17-09-1987', 'Melvin Ortiz', 20156, '02-02-2023', '12:00', 'Medicina general', '2 cucharadas de Pepto-Bismol cada hora hasta que la diarrea desaparezca')
+r3 = Receta('Luis García', '17-09-1987', 'Melvin Ortiz', 20157, '02-02-2023', '12:00', 'Medicina general', '2 cucharadas de Pepto-Bismol cada hora hasta que la diarrea desaparezca')
 
 #insercion 
 lista_c = lista_circular()
@@ -78,5 +96,6 @@ lista_c.insertar(r3)
 lista_c.recorrer()
 
 # Eliminar
-lista_c.eliminar(8567, '31-01-2023','09:00')
+#lista_c.eliminar(8567, '31-01-2023','09:00')
+lista_c.modificar('Gerson Lopez', '17/01/2023', '11:30', '1 cucharada de Pepto-Bismol cada 6 horas')
 lista_c.recorrer()
