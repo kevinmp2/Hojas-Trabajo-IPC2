@@ -61,7 +61,7 @@ class lista_circular:
                     actual = actual.siguiente
                 actual.siguiente = self.primero.siguiente
                 self.primero = self.primero.siguiente
-
+    # Modifica el tratamiento del paciente por uno nuevo
     def modificar(self, paciente, fecha_cita, hora_cita, nuevo_tratamiento):
         actual = self.primero
         no_encontrado = False
