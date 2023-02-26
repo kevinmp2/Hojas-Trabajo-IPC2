@@ -58,9 +58,18 @@ class Lista_Doble:
             else:
                 actual = actual.siguiente
         return False
-
     
-
+    
+    def modificar(self, paciente, fecha_cita, hora_cita, nuevo_tratamiento):
+        actual = self.primero
+        while actual:
+            if actual.receta.paciente == paciente and actual.receta.fecha_cita == fecha_cita and actual.receta.hora_cita == hora_cita:
+                actual.receta.tratamiento = nuevo_tratamiento
+                return True
+            else:
+                actual = actual.siguiente
+        return False
+    
 #Creacion de objetos Receta
 r1 = Receta('Gerson Lopez', '03/10/1990', 'Melvin Ortiz', 20156, '17/01/2023', '11:30', 'Medicina', '2 pildoras de acetaminofen cada 6 horas')
 r2 = Receta('Karen Gómez', '08-05-2000', 'Jorge Merida', 8567, '31-01-2023', '09:00', 'Medicina interna', 'Tylenol de 20 ml cada 4 horas')
@@ -75,14 +84,14 @@ lista_d.insertar(r3)
 #recorrer
 lista_d.recorrer()
 #Eliminar un nodo del medio
-lista_d.eliminar(8567, '31-01-2023', '09:00')
-lista_d.recorrer()
+#lista_d.eliminar(8567, '31-01-2023', '09:00')
+#lista_d.recorrer()
 #Eliminar el primer nodo
-lista_d.eliminar(20157, '02-02-2023', '12:00')
-lista_d.recorrer()
+#lista_d.eliminar(20157, '02-02-2023', '12:00')
+#lista_d.recorrer()
 #Eliminar el ultimo nodo
-lista_d.eliminar(20156, '17/01/2023', '11:30')
-lista_d.recorrer()
+#lista_d.eliminar(20156, '17/01/2023', '11:30')
+#lista_d.recorrer()
 
-print('lista vacia')
+lista_d.modificar('Karen Gómez', '31-01-2023', '09:00', 'Tylenol de 50 ml cada 4 horas')
 lista_d.recorrer()

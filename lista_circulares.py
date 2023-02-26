@@ -76,11 +76,6 @@ class lista_circular:
         if not no_encontrado:
             actual.receta.tratamiento = nuevo_tratamiento
 
-
-
-
-
-
 #Creacion de objetos Receta
 r1 = Receta('Gerson Lopez', '03/10/1990', 'Melvin Ortiz', 20156, '17/01/2023', '11:30', 'Medicina', '2 pildoras de acetaminofen cada 6 horas')
 r2 = Receta('Karen Gómez', '08-05-2000', 'Jorge Merida', 8567, '31-01-20233', '09:00', 'Medicina interna', 'Tylenol de 20 ml cada 4 horas')
